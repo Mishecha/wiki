@@ -12,7 +12,7 @@ def parse_wikipedia_article(url):
     doc = Document()
 
     title = soup.find(id="firstHeading").text
-    doc.add_heading(title, 0)
+    doc.add_heading(title, 1)
 
     doc.save('wikipedia_article.docx')
 
