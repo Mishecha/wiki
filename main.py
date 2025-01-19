@@ -6,7 +6,7 @@ from docx import Document
 def parse_wikipedia_article(url):
     try:
         response = requests.get(url)
-        response.raise_for_status()  
+        response.raise_for_status()
     except requests.exceptions.RequestException as e:
         print(f"Ошибка при получении статьи: {e}")
         return
