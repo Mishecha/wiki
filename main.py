@@ -14,7 +14,9 @@ def parse_wikipedia_article(url):
     title = soup.find(id="firstHeading").text
     doc.add_heading(title, 1)
 
-    doc.save('wikipedia_article.docx')
+    filename = f"{title}.docx"
+    doc.save(filename)
 
-url = input("Введите ссылку на статью Википедии: ")
-parse_wikipedia_article(url)
+if __name__ == "__main__":
+    url = input("Введите ссылку на статью Википедии: ")
+    parse_wikipedia_article(url)
