@@ -25,17 +25,15 @@ def parse_wikipedia_article(url):
             doc.add_heading(element.text.strip(), level=3)
         elif element.name == 'p':
             doc.add_paragraph(element.text.strip())
-        if element.id == 'См._также':
-            break
-        if element.id == 'See_also':
+        if element.get('id') in {'See_also', 'См._также'}:
             break
 
-    filename = f"{title.text.strip()}.docx"
+    filename = f"{title.strip()}.docx"
     doc.save(filename)
 
 
 def main():
-    url = input("Введите ссылку на статью Википедии: ").sprip()
+    url = input("Введите ссылку на статью Википедии: ").strip()
     parse_wikipedia_article(url)
 
 
